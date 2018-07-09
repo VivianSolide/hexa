@@ -7,10 +7,10 @@ const axios = require("axios");
 router.get("/getcameras", (req, res, next) => {
 	axios
 		.get("http://api.deckchair.com/v1/cameras")
-		.then(function(response) {
+		.then(response => {
 			res.jsonp(response.data);
 		})
-		.catch(function(error) {
+		.catch(error => {
 			console.log(error);
 		});
 });
