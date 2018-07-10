@@ -1,5 +1,4 @@
 const Scraper = require("./all");
-const City = require("../models/city");
 
 var MongoClient = require("mongodb").MongoClient;
 var url = "mongodb://localhost:27017/hexa";
@@ -14,7 +13,11 @@ MongoClient.connect(
 			.find({})
 			.toArray(function(err, result) {
 				if (err) throw err;
-				console.log(result);
+				let a = new Scraper(
+					"533c829d60a087e91766ef19",
+					"http://www.theparktowerknightsbridge.com/webcam"
+				).scrap();
+				console.log(a);
 				db.close();
 			});
 	}
