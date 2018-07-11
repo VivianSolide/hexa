@@ -20,17 +20,43 @@ router.get("/getcameras", (req, res, next) => {
 				allCities.push(oneCity);
 			}
 
-			res.json(allCities);
-
-			City.updateMany(allCities, (error, cities) => {
+			
+			City.insertMany(allCities, (error, cities) => {
 				console.log("error", error);
 				console.log("DEBUG cities", cities);
 			});
+			res.json(allCities);
 		})
 		.catch(error => {
 			console.log(error);
 		});
 });
+
+router.get("/getLastPhoto", (req, res, next) => {
+	let promises = []
+
+	City.find({}).then(cities => {
+		cities.forEach((element, i) => {
+			promises.push(axios.get(`http://api.deckchair.com/v1/camera/${element.dcId}/images`));
+
+		})
+		Promise.all(promises)
+			.then(photos =>
+				photos.forEach((photo, index) => {
+					City.findByIdAndUpdate(cities[index]._id, { $set: { lastPhoto: `http://api.deckchair.com/v1/viewer/image/${photo.data.data[0]._id}` } })
+						.then(citiesUpdated => res.json(citiesUpdated))
+
+				}))
+
+			.catch(err => console.log(err))
+
+	})
+		.catch(err => console.log(err))
+});
+
+
+
+
 
 module.exports = router;
 

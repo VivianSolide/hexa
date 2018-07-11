@@ -16,6 +16,9 @@ const citySchema = new mongoose.Schema({
 		type: Boolean,
 		required: [true, "The status is required"]
 	},
+	lastPhoto: {
+		type: String
+	},
 	link: {
 		type: String
 	},
