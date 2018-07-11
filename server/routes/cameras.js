@@ -20,10 +20,13 @@ router.get("/getcameras", (req, res, next) => {
 				allCities.push(oneCity);
 			}
 
-			
+			res.json(allCities);
+
 			City.insertMany(allCities, (error, cities) => {
-				console.log("error", error);
-				console.log("DEBUG cities", cities);
+				if (error) {
+					throw error;
+				}
+				console.log(cities);
 			});
 			res.json(allCities);
 		})
