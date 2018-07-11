@@ -1,30 +1,18 @@
 const puppeteer = require("puppeteer");
 
 class Scraper {
-	constructor(id, link) {
-		this.id = id;
-		this.link = link;
-	}
-
-	scrap() {
+	scrap(id, link) {
 		(async () => {
-			const browser = await puppeteer.launch();
+			const browser = await puppeteer.launch({ headless: false });
 			const page = await browser.newPage();
-			await page.goto(this.link);
-			await page.screenshot({ path: `../public/images/${this.id}.jpg` });
+			await page.goto(link);
+			await page.waitForSelector("camera");
+			await page.click("camera");
+			console.log("toto");
+			// await page.screenshot({ path: `../public/images/${id}.jpg` });
 			await browser.close();
 		})();
 	}
 }
 
 module.exports = Scraper;
-
-// const puppeteer = require("puppeteer");
-
-// (async () => {
-// 	const browser = await puppeteer.launch();
-// 	const page = await browser.newPage();
-// 	await page.goto("https://www.radissonblu.com/en/hotel-lyon/gallery#/webcam");
-// 	await page.screenshot({ path: "../public/images/lyon.jpg" });
-// 	await browser.close();
-// })();

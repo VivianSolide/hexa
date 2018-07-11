@@ -23,8 +23,10 @@ router.get("/getcameras", (req, res, next) => {
 			res.json(allCities);
 
 			City.updateMany(allCities, (error, cities) => {
-				console.log("error", error);
-				console.log("DEBUG cities", cities);
+				if (error) {
+					throw error;
+				}
+				console.log(cities);
 			});
 		})
 		.catch(error => {
@@ -33,7 +35,6 @@ router.get("/getcameras", (req, res, next) => {
 });
 
 module.exports = router;
-
 // var express = require("express");
 // var router = express.Router();
 // var fs = require("fs"),
