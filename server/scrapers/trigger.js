@@ -7,17 +7,16 @@ MongoClient.connect(
 	url,
 	function(err, db) {
 		if (err) throw err;
-		var dbo = db.db("hexa");
-		dbo
+		db.db("hexa")
 			.collection("cities")
 			.find({})
 			.toArray(function(err, result) {
 				if (err) throw err;
-				let a = new Scraper(
-					"533c829d60a087e91766ef19",
-					"http://www.theparktowerknightsbridge.com/webcam"
-				).scrap();
-				console.log(a);
+				const scraper = new Scraper();
+				for (let i = 0; i < 1; i++) {
+					scraper.scrap(result[i].dcId, result[i].link);
+					// console.log(result[i].dcId);
+				}
 				db.close();
 			});
 	}
