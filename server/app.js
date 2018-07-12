@@ -15,6 +15,7 @@ var authRoutes = require("./routes/auth");
 var countriesRoutes = require("./routes/countries");
 var usersRoutes = require("./routes/users");
 var camerasRoutes = require("./routes/cameras");
+var paletteRoutes = require("./routes/palette");
 
 require("./configs/database");
 require("./configs/cloudinary");
@@ -64,6 +65,7 @@ app.use("/api", authRoutes);
 app.use("/api/countries", countriesRoutes);
 app.use("/api/users", usersRoutes);
 app.use("/api", camerasRoutes);
+app.use("/api", paletteRoutes);
 
 // For any routes that starts with "/api", catch 404 and forward to error handler
 app.use("/api/*", (req, res, next) => {

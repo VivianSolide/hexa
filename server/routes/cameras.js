@@ -3,8 +3,7 @@ const router = express.Router();
 const axios = require("axios");
 const City = require("../models/city");
 
-// Endpoint: http://api.deckchair.com/v1/cameras
-
+// Weekly?
 router.get("/getcameras", (req, res, next) => {
 	axios
 		.get("http://api.deckchair.com/v1/cameras")
@@ -35,62 +34,33 @@ router.get("/getcameras", (req, res, next) => {
 		});
 });
 
+// Each hour?
 router.get("/getLastPhoto", (req, res, next) => {
-	let promises = []
+	let promises = [];
 
-	City.find({}).then(cities => {
-		cities.forEach((element, i) => {
-			promises.push(axios.get(`http://api.deckchair.com/v1/camera/${element.dcId}/images`));
+	City.find({})
+		.then(cities => {
+			cities.forEach((element, i) => {
+				promises.push(
+					axios.get(`http://api.deckchair.com/v1/camera/${element.dcId}/images`)
+				);
+			});
+			Promise.all(promises)
+				.then(photos =>
+					photos.forEach((photo, index) => {
+						City.findByIdAndUpdate(cities[index]._id, {
+							$set: {
+								lastPhoto: `http://api.deckchair.com/v1/viewer/image/${
+									photo.data.data[0]._id
+								}`
+							}
+						}).then(citiesUpdated => res.json(citiesUpdated));
+					})
+				)
 
+				.catch(err => console.log(err));
 		})
-		Promise.all(promises)
-			.then(photos =>
-				photos.forEach((photo, index) => {
-					City.findByIdAndUpdate(cities[index]._id, { $set: { lastPhoto: `http://api.deckchair.com/v1/viewer/image/${photo.data.data[0]._id}` } })
-						.then(citiesUpdated => res.json(citiesUpdated))
-
-				}))
-
-			.catch(err => console.log(err))
-
-	})
-		.catch(err => console.log(err))
+		.catch(err => console.log(err));
 });
 
-
-
-
-
 module.exports = router;
-// var express = require("express");
-// var router = express.Router();
-// var fs = require("fs"),
-// 	gm = require("gm").subClass({ imageMagick: true });
-// var Vibrant = require("node-vibrant");
-// var request = require("request");
-
-// /* GET home page. */
-// router.get("/", function (req, res, next) {
-// 	// resize and remove EXIF profile data
-// 	// gm("public/images/yolo.jpg")
-// 	gm("public/images/yolo.jpg")
-// 		.crop(500, 120, 150, 250)
-// 		.write("public/images/cropped.jpeg", err => {
-// 			if (err) {
-// 				console.log(err);
-// 			} else {
-// 				Vibrant.from("public/images/cropped.jpeg")
-// 					.getPalette()
-// 					.then(palette => {
-// 						let colors = palette;
-// 						console.log(colors);
-// 						res.render("index", { colors });
-// 					})
-// 					.catch(err => {
-// 						console.log("error : ", err);
-// 					});
-// 			}
-// 		});
-// });
-
-// module.exports = router;
