@@ -23,17 +23,83 @@ const citySchema = new mongoose.Schema({
 		type: String
 	},
 	palette: {
-		primary: {
-			hexa: Array,
-			percentage: Number
+		Vibrant: {
+			Swatch: {
+				_rgb: {
+					type: Array
+				},
+				_population: {
+					type: Number
+				},
+				_hsl: {
+					type: Array
+				}
+			}
 		},
-		secondary: {
-			hexa: Array,
-			percentage: Number
+		LightVibrant: {
+			Swatch: {
+				_rgb: {
+					type: Array
+				},
+				_population: {
+					type: Number
+				},
+				_hsl: {
+					type: Array
+				}
+			}
 		},
-		tertiary: {
-			hexa: Array,
-			percentage: Number
+		DarkVibrant: {
+			Swatch: {
+				_rgb: {
+					type: Array
+				},
+				_population: {
+					type: Number
+				},
+				_hsl: {
+					type: Array
+				}
+			}
+		},
+		Muted: {
+			Swatch: {
+				_rgb: {
+					type: Array
+				},
+				_population: {
+					type: Number
+				},
+				_hsl: {
+					type: Array
+				}
+			}
+		},
+		LightMuted: {
+			Swatch: {
+				_rgb: {
+					type: Array
+				},
+				_population: {
+					type: Number
+				},
+				_hsl: {
+					type: Array
+				}
+			}
+		},
+		DarkMuted: {
+			Swatch: {
+				_rgb: {
+					type: Array
+				},
+				_population: {
+					type: Number
+				},
+				_hsl: {
+					type: Array
+				}
+			}
 		}
 	}
 });
