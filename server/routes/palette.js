@@ -11,7 +11,7 @@ router.get("/getpalette", function(req, res, next) {
 	City.find({}).then(cities => {
 		cities.forEach((city, i) => {
 			gm(city.lastPhoto)
-				.crop(500, 120, 150, 250)
+				.crop(500, 5, 0, 0)
 				.write(`public/images/${city._id}.jpg`, err => {
 					if (err) {
 						console.log(err);
