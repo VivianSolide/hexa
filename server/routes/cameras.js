@@ -40,24 +40,19 @@ router.get("/getLastPhoto", (req, res, next) => {
 
 	City.find({}).then(cities => {
 		cities.forEach((element, i) => {
-			promises.push(axios.get(`http://api.deckchair.com/v1/camera/${element.dcId}/images`));
+			axios.get(`http://api.deckchair.com/v1/camera/${element.dcId}/images`)
+				.then(photo => {
+					City.findByIdAndUpdate(cities[i]._id, { $set: { lastPhoto: `http://api.deckchair.com/v1/viewer/image/${photo.data.data[0]._id}` } })
+						.then(final => res.json(final))
+
+				})
 
 		})
-		Promise.all(promises)
-			.then(photos =>
-				photos.forEach((photo, index) => {
-					City.findByIdAndUpdate(cities[index]._id, { $set: { lastPhoto: `http://api.deckchair.com/v1/viewer/image/${photo.data.data[0]._id}` } })
-						.then(citiesUpdated => res.json(citiesUpdated))
 
-				}))
-
-			.catch(err => console.log(err))
 
 	})
 		.catch(err => console.log(err))
 });
-
-
 
 
 
