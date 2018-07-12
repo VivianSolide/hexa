@@ -28,11 +28,11 @@ const citySchema = new mongoose.Schema({
 			percentage: Number
 		},
 		secondary: {
-			hexa: String,
+			hexa: Array,
 			percentage: Number
 		},
 		tertiary: {
-			hexa: String,
+			hexa: Array,
 			percentage: Number
 		}
 	}
