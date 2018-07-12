@@ -24,15 +24,15 @@ const citySchema = new mongoose.Schema({
 	},
 	palette: {
 		primary: {
-			hexa: String,
+			hexa: Array,
 			percentage: Number
 		},
 		secondary: {
-			hexa: String,
+			hexa: Array,
 			percentage: Number
 		},
 		tertiary: {
-			hexa: String,
+			hexa: Array,
 			percentage: Number
 		}
 	}
