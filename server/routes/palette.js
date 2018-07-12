@@ -22,7 +22,7 @@ router.get("/getpalette", function(req, res, next) {
 							.then(colors => {
 								if (colors.Vibrant) {
 									City.findByIdAndUpdate(cities[i]._id, {
-										$set: {
+										$push: {
 											"palette.primary.hexa": colors.Vibrant.Swatch.rgb
 										}
 									});
