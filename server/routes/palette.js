@@ -7,7 +7,6 @@ var fs = require("fs"),
 var Vibrant = require("node-vibrant");
 var request = require("request");
 
-/* GET home page. */
 router.get("/getpalette", function(req, res, next) {
 	City.find({}).then(cities => {
 		cities.forEach((city, i) => {
@@ -20,36 +19,12 @@ router.get("/getpalette", function(req, res, next) {
 						Vibrant.from(`public/images/${city._id}.jpg`)
 							.getPalette()
 							.then(colors => {
-								if (colors) {
-									let ts = JSON.parse(JSON.stringify(colors));
-									// console.log("--------------------");
-									// console.log(cities[i].dcId);
-									// console.log("--------------------");
-									// console.log(ts);
-									// console.log("--------------------");
-
-									City.findOneAndUpdate(
-										{ dcId: cities[i].dcId },
-										{
-											palette: ts,
-											status: true
-										},
-										{ upsert: true, new: true },
-										function(err, city) {
-											if (err) {
-												console.log(err);
-											} else {
-												console.log(city);
-											}
-										}
-									);
-
-									// City.update(
-									// 	{ dcId: "533c829d60a087e91766ef19" },
-									// { status: false }
-									// { new: true }
-									// );
-								}
+								let ts = JSON.parse(JSON.stringify(colors));
+								City.findOneAndUpdate(
+									{ dcId: cities[i].dcId },
+									{ palette: ts },
+									{ upsert: true, new: true }
+								);
 							})
 							.catch(err => {
 								console.log("error : ", err);
@@ -57,7 +32,18 @@ router.get("/getpalette", function(req, res, next) {
 					}
 				});
 		});
+		res.send("work in progress!");
 	});
+});
+
+router.get("/colors", (req, res, next) => {
+	City.find({})
+		.then(data => {
+			res.json(data);
+		})
+		.catch(err => {
+			throm(err);
+		});
 });
 
 module.exports = router;
