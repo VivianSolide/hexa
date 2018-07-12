@@ -20,13 +20,10 @@ router.get("/getpalette", function(req, res, next) {
 						Vibrant.from(`public/images/${element._id}.jpg`)
 							.getPalette()
 							.then(colors => {
-								if (colors.Vibrant) {
-									City.findByIdAndUpdate(cities[i]._id, {
-										$push: {
-											"palette.primary.hexa": colors.Vibrant.Swatch.rgb
-										}
-									});
-								}
+								console.log("coloooooors", colors.Vibrant)
+								// if (colors.Vibrant) {
+								// 	City.findByIdAndUpdate(cities[i]._id, { palette: { primary: {$push: {hexa: colors.Vibrant.Swatch.rgb}} } });
+								// }
 							})
 							.catch(err => {
 								console.log("error : ", err);
