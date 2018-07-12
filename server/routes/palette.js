@@ -10,7 +10,7 @@ var request = require("request");
 /* GET home page. */
 router.get("/getpalette", function(req, res, next) {
 	City.find({}).then(cities => {
-		cities.forEach(element => {
+		cities.forEach((element, i) => {
 			gm(element.lastPhoto)
 				.crop(500, 120, 150, 250)
 				.write(`public/images/${element._id}.jpg`, err => {
@@ -19,9 +19,10 @@ router.get("/getpalette", function(req, res, next) {
 					} else {
 						Vibrant.from(`public/images/${element._id}.jpg`)
 							.getPalette()
-							.then(palette => {
-								let colors = palette;
-								console.log(colors);
+							.then(colors => {
+								if (colors.Vibrant) {
+									City.findByIdAndUpdate(cities[i]._id, {});
+								}
 							})
 							.catch(err => {
 								console.log("error : ", err);
