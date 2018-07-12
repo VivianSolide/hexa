@@ -10,27 +10,45 @@ var request = require("request");
 /* GET home page. */
 router.get("/getpalette", function(req, res, next) {
 	City.find({}).then(cities => {
-		cities.forEach((element, i) => {
-			gm(element.lastPhoto)
+		cities.forEach((city, i) => {
+			gm(city.lastPhoto)
 				.crop(500, 120, 150, 250)
-				.write(`public/images/${element._id}.jpg`, err => {
+				.write(`public/images/${city._id}.jpg`, err => {
 					if (err) {
 						console.log(err);
 					} else {
-						Vibrant.from(`public/images/${element._id}.jpg`)
+						Vibrant.from(`public/images/${city._id}.jpg`)
 							.getPalette()
 							.then(colors => {
 								if (colors) {
 									let ts = JSON.parse(JSON.stringify(colors));
-									console.log("ts[i]", ts[i]);
-									City.findOne(
+									// console.log("--------------------");
+									// console.log(cities[i].dcId);
+									// console.log("--------------------");
+									// console.log(ts);
+									// console.log("--------------------");
+
+									City.findOneAndUpdate(
 										{ dcId: cities[i].dcId },
 										{
-											$set: {
-												palette: ts
+											palette: ts,
+											status: true
+										},
+										{ upsert: true, new: true },
+										function(err, city) {
+											if (err) {
+												console.log(err);
+											} else {
+												console.log(city);
 											}
 										}
 									);
+
+									// City.update(
+									// 	{ dcId: "533c829d60a087e91766ef19" },
+									// { status: false }
+									// { new: true }
+									// );
 								}
 							})
 							.catch(err => {

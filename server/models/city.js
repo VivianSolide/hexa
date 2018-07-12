@@ -28,7 +28,7 @@ const citySchema = new mongoose.Schema({
 				type: Array
 			},
 			_population: {
-				type: Number
+				type: String
 			},
 			_hsl: {
 				type: Array
@@ -39,7 +39,7 @@ const citySchema = new mongoose.Schema({
 				type: Array
 			},
 			_population: {
-				type: Number
+				type: String
 			},
 			_hsl: {
 				type: Array
@@ -50,7 +50,7 @@ const citySchema = new mongoose.Schema({
 				type: Array
 			},
 			_population: {
-				type: Number
+				type: String
 			},
 			_hsl: {
 				type: Array
@@ -61,7 +61,7 @@ const citySchema = new mongoose.Schema({
 				type: Array
 			},
 			_population: {
-				type: Number
+				type: String
 			},
 			_hsl: {
 				type: Array
@@ -72,7 +72,7 @@ const citySchema = new mongoose.Schema({
 				type: Array
 			},
 			_population: {
-				type: Number
+				type: String
 			},
 			_hsl: {
 				type: Array
@@ -83,7 +83,7 @@ const citySchema = new mongoose.Schema({
 				type: Array
 			},
 			_population: {
-				type: Number
+				type: String
 			},
 			_hsl: {
 				type: Array
