@@ -21,12 +21,13 @@ router.get("/getpalette", function(req, res, next) {
 							.getPalette()
 							.then(colors => {
 								if (colors) {
-									console.log(colors);
+									let ts = JSON.parse(JSON.stringify(colors));
+									console.log("ts[i]", ts[i]);
 									City.findOne(
 										{ dcId: cities[i].dcId },
 										{
 											$set: {
-												/* ?????????????????????????????? */
+												palette: ts
 											}
 										}
 									);
