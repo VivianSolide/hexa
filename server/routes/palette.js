@@ -11,7 +11,7 @@ router.get("/getpalette", function(req, res, next) {
 	City.find({}).then(cities => {
 		cities.forEach((city, i) => {
 			gm(city.lastPhoto)
-				.crop(500, 5, 0, 0)
+				.crop(500, 20, 0, 0)
 				.write(`public/images/${city._id}.jpg`, err => {
 					if (err) {
 						console.log(err);
@@ -26,17 +26,18 @@ router.get("/getpalette", function(req, res, next) {
 									{ upsert: true, new: true }
 								);
 							})
+							// .then(colorsUpdated => res.json(colorsUpdated))
 							.catch(err => {
 								console.log("error : ", err);
 							});
 					}
 				});
 		});
-		res.send("work in progress!");
+		// res.send("work in progress!");
 	});
 });
 
-router.get("/colors", (req, res, next) => {
+router.get("/getcolors", (req, res, next) => {
 	City.find({})
 		.then(data => {
 			res.json(data);
