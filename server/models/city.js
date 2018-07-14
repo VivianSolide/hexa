@@ -24,81 +24,69 @@ const citySchema = new mongoose.Schema({
 	},
 	palette: {
 		Vibrant: {
-			Swatch: {
-				_rgb: {
-					type: Array
-				},
-				_population: {
-					type: Number
-				},
-				_hsl: {
-					type: Array
-				}
+			_rgb: {
+				type: Array
+			},
+			_population: {
+				type: String
+			},
+			_hsl: {
+				type: Array
 			}
 		},
 		LightVibrant: {
-			Swatch: {
-				_rgb: {
-					type: Array
-				},
-				_population: {
-					type: Number
-				},
-				_hsl: {
-					type: Array
-				}
+			_rgb: {
+				type: Array
+			},
+			_population: {
+				type: String
+			},
+			_hsl: {
+				type: Array
 			}
 		},
 		DarkVibrant: {
-			Swatch: {
-				_rgb: {
-					type: Array
-				},
-				_population: {
-					type: Number
-				},
-				_hsl: {
-					type: Array
-				}
+			_rgb: {
+				type: Array
+			},
+			_population: {
+				type: String
+			},
+			_hsl: {
+				type: Array
 			}
 		},
 		Muted: {
-			Swatch: {
-				_rgb: {
-					type: Array
-				},
-				_population: {
-					type: Number
-				},
-				_hsl: {
-					type: Array
-				}
+			_rgb: {
+				type: Array
+			},
+			_population: {
+				type: String
+			},
+			_hsl: {
+				type: Array
 			}
 		},
 		LightMuted: {
-			Swatch: {
-				_rgb: {
-					type: Array
-				},
-				_population: {
-					type: Number
-				},
-				_hsl: {
-					type: Array
-				}
+			_rgb: {
+				type: Array
+			},
+			_population: {
+				type: String
+			},
+			_hsl: {
+				type: Array
 			}
 		},
 		DarkMuted: {
-			Swatch: {
-				_rgb: {
-					type: Array
-				},
-				_population: {
-					type: Number
-				},
-				_hsl: {
-					type: Array
-				}
+			_rgb: {
+				type: Array
+			},
+			_population: {
+				type: String
+			},
+			_hsl: {
+				type: Array
 			}
 		}
 	}

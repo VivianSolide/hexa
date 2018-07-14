@@ -21,6 +21,9 @@ router.get("/getcameras", (req, res, next) => {
 
 			res.json(allCities);
 
+			City.remove({}, function(err) {
+				console.log("collection removed");
+			});
 			City.insertMany(allCities, (error, cities) => {
 				if (error) {
 					throw error;
@@ -35,7 +38,7 @@ router.get("/getcameras", (req, res, next) => {
 });
 
 // Each hour?
-router.get("/getLastPhoto", (req, res, next) => {
+router.get("/getlastphoto", (req, res, next) => {
 	let promises = [];
 
 	City.find({})

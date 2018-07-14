@@ -7,38 +7,44 @@ var fs = require("fs"),
 var Vibrant = require("node-vibrant");
 var request = require("request");
 
-/* GET home page. */
 router.get("/getpalette", function(req, res, next) {
 	City.find({}).then(cities => {
-		cities.forEach((element, i) => {
-			gm(element.lastPhoto)
-				.crop(500, 120, 150, 250)
-				.write(`public/images/${element._id}.jpg`, err => {
+		cities.forEach((city, i) => {
+			gm(city.lastPhoto)
+				.crop(500, 20, 0, 0)
+				.write(`public/images/${city._id}.jpg`, err => {
 					if (err) {
 						console.log(err);
 					} else {
-						Vibrant.from(`public/images/${element._id}.jpg`)
+						Vibrant.from(`public/images/${city._id}.jpg`)
 							.getPalette()
 							.then(colors => {
-								if (colors) {
-									console.log(colors);
-									City.findOne(
-										{ dcId: cities[i].dcId },
-										{
-											$set: {
-												/* ?????????????????????????????? */
-											}
-										}
-									);
-								}
+								let ts = JSON.parse(JSON.stringify(colors));
+								City.findOneAndUpdate(
+									{ dcId: cities[i].dcId },
+									{ palette: ts },
+									{ upsert: true, new: true }
+								);
 							})
+							// .then(colorsUpdated => res.json(colorsUpdated))
 							.catch(err => {
 								console.log("error : ", err);
 							});
 					}
 				});
 		});
+		// res.send("work in progress!");
 	});
+});
+
+router.get("/getcolors", (req, res, next) => {
+	City.find({})
+		.then(data => {
+			res.json(data);
+		})
+		.catch(err => {
+			throm(err);
+		});
 });
 
 module.exports = router;
