@@ -11,20 +11,39 @@ const errHandler = err => {
 
 export default {
   service: service,
-  
-  getCountries() {
+
+  getCameras() {   //retrieve all the cameras from the database
     return service
-      .get('/countries')
+      .get('/getcolors')
+      .then(res => res.data)
+      .catch(errHandler);
+  },
+  getCamera(id) {   //retrieve a unique camera from the database
+    return service
+      .get(`/getcolors/${id}`)
+      .then(res => res.data)
+      .catch(errHandler);
+  },
+  updateCameras() {  //update basic information into the database
+    return service
+      .get('/getcameras')
       .then(res => res.data)
       .catch(errHandler);
   },
 
-  postCountries(data) {
+  updatePhotos() {    //update the last photo of every camera
     return service
-      .post('/countries', data)
+      .get('/getlastphoto')
       .then(res => res.data)
       .catch(errHandler);
   },
+  updatePalete() {    //calculate the colors of the photos and store the object into the database
+    return service
+      .get('/getpalette')
+      .then(res => res.data)
+      .catch(errHandler);
+  },
+ 
   
   getSecret() {
     return service

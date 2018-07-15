@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 import Home from './Home';
-import Countries from './Countries';
+import CityDetail from './CityDetail';
 import AddCountry from './AddCountry';
 import Secret from './Secret';
 import Login from './Login';
@@ -38,9 +38,8 @@ class App extends Component {
           <Link to="/secret">Secret</Link> 
         </header>
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/countries" component={Countries} />
-          <Route path="/add-country" component={AddCountry} />
+          <Route exact path="/" component={Home} />
+          <Route path="/city/:cityId" component={CityDetail} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <Route path="/secret" component={Secret} />

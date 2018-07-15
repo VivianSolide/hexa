@@ -1,16 +1,28 @@
 import React, { Component } from 'react';
+import './App.css';
+import Searchbar from "./Searchbar";
+import CityList from "./CityList";
+
 
 class Home extends Component {
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {
-  //   }
-  // }
-  render() {                
+  constructor(props){
+    super(props)
+    this.state = {
+      searchText: "",
+
+    }
+  }
+  handleChange(e){
+    console.log(e.target.value)
+    this.setState({
+      searchText: e.target.value
+    })
+  }
+  render() {
     return (
-      <div className="Home">
-        <h2>Home</h2>
-        <p>This is a sample project with the MERN stack</p>
+      <div >
+       <Searchbar changeSearch={this.handleChange.bind(this)} searchText={this.state.searchText}/>
+       <CityList searchText={this.state.searchText}/>
       </div>
     );
   }

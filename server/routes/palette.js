@@ -24,7 +24,8 @@ router.get("/getpalette", function(req, res, next) {
 									{ dcId: cities[i].dcId },
 									{ palette: ts },
 									{ upsert: true, new: true }
-								);
+								)
+								.then(final => console.log(final))
 							})
 							// .then(colorsUpdated => res.json(colorsUpdated))
 							.catch(err => {
@@ -47,4 +48,14 @@ router.get("/getcolors", (req, res, next) => {
 		});
 });
 
+router.get("/getcolors/:cameraId", (req, res, next) => {
+	let cameraId = req.params.cameraId;
+	City.findById(cameraId)
+		.then(data => {
+			res.json(data);
+		})
+		.catch(err => {
+			throm(err);
+		});
+});
 module.exports = router;

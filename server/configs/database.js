@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 const dbName = 'hexa';
-const mongoUri = process.env.MONGODB_URI || `mongodb://localhost/${dbName}`;
+const mongoUri =  `mongodb://localhost/${dbName}`;
 
 // connect to the database
 mongoose.connect(mongoUri);
