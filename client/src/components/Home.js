@@ -1,31 +1,32 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 import Searchbar from "./Searchbar";
 import CityList from "./CityList";
 
-
 class Home extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      searchText: "",
-
-    }
-  }
-  handleChange(e){
-    console.log(e.target.value)
-    this.setState({
-      searchText: e.target.value
-    })
-  }
-  render() {
-    return (
-      <div >
-       <Searchbar changeSearch={this.handleChange.bind(this)} searchText={this.state.searchText}/>
-       <CityList searchText={this.state.searchText}/>
-      </div>
-    );
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			searchText: ""
+		};
+	}
+	handleChange(e) {
+		console.log(e.target.value);
+		this.setState({
+			searchText: e.target.value
+		});
+	}
+	render() {
+		return (
+			<div className="container">
+				<Searchbar
+					changeSearch={this.handleChange.bind(this)}
+					searchText={this.state.searchText}
+				/>
+				<CityList searchText={this.state.searchText} />
+			</div>
+		);
+	}
 }
 
 export default Home;
