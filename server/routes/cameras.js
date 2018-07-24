@@ -19,17 +19,16 @@ router.get("/getcameras", (req, res, next) => {
 				allCities.push(oneCity);
 			}
 
-			res.json(allCities);
-
 			City.remove({}, function(err) {
 				console.log("collection removed");
 			});
+
 			City.insertMany(allCities, (error, cities) => {
 				if (error) {
 					throw error;
 				}
-				console.log(cities);
 			});
+
 			res.json(allCities);
 		})
 		.catch(error => {
