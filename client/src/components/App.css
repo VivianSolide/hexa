@@ -35,3 +35,19 @@
 		transform: rotate(360deg);
 	}
 }
+
+.heading-cityDetail {
+	background-color: white;
+	top: 50px;
+}
+
+.heading-cityDetail > h1 {
+	font-size: 12rem;
+	text-shadow: 1px 1px white;
+}
+
+.form-control {
+	width: 50% !important;
+	margin: 0 auto;
+	margin-bottom: 2rem !important;
+}

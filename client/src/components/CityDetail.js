@@ -22,10 +22,15 @@ class CityDetail extends Component {
 		return (
 			this.state.camera && (
 				<div
-					className="container"
-					style={{ backgroundImage: `url(${camera.lastPhoto})` }}
+					className="container-fluid"
+					style={{
+						backgroundImage: `url(${camera.lastPhoto})`,
+						height: "85vh"
+					}}
 				>
-					<h1>{camera.location.title}</h1>
+					<div className="heading-cityDetail">
+						<h1>{camera.location.title}</h1>
+					</div>
 
 					{camera.palette.Vibrant && (
 						<div className="row">
