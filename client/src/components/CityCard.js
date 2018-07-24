@@ -20,7 +20,7 @@ class CityCard extends Component {
 				className="card"
 				style={{
 					backgroundColor: `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`,
-					width: "18rem"
+					width: "100%"
 				}}
 			>
 				<div className="card-body">

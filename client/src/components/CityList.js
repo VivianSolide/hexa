@@ -20,10 +20,11 @@ class CityList extends Component {
 	}
 
 	render() {
-		console.log(this.state);
+		let random = Math.floor(Math.random * 6);
+
 		return (
 			this.state.cameras && (
-				<div className="container">
+				<div className="container-fluid">
 					<div className="row">
 						{this.state.cameras
 							.filter(camera => {
@@ -32,7 +33,7 @@ class CityList extends Component {
 									.includes(this.props.searchText.toLowerCase());
 							})
 							.map((camera, i) => (
-								<div key={camera._id} className="col-3">
+								<div key={camera._id} className={`col-${random}`}>
 									<Link to={`/city/${camera._id}`}>
 										<CityCard city={camera} />
 									</Link>

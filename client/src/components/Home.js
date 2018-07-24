@@ -18,7 +18,7 @@ class Home extends Component {
 	}
 	render() {
 		return (
-			<div className="container">
+			<div className="">
 				<Searchbar
 					changeSearch={this.handleChange.bind(this)}
 					searchText={this.state.searchText}
