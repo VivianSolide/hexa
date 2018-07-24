@@ -14,6 +14,7 @@ class Searchbar extends Component {
 					type="text"
 					onChange={this.props.changeSearch}
 					value={this.props.searchText}
+					placeholder="Choose your city"
 				/>
 			</div>
 		);

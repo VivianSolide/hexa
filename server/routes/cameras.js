@@ -60,7 +60,7 @@ router.get("/getlastphoto", (req, res, next) => {
 					})
 				)
 
-				.catch(err => console.log(err));
+				.catch(err => console.log(err)); // res.json(cities)
 		})
 		.catch(err => console.log(err));
 });

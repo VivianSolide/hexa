@@ -7,7 +7,7 @@ import Secret from "./Secret";
 import Login from "./Login";
 import Signup from "./Signup";
 import api from "../api";
-import logo from "../logo.svg";
+import logo from "../logo.png";
 import "./App.css";
 import { Button } from "reactstrap";
 
@@ -29,8 +29,8 @@ class App extends Component {
 			<div className="App">
 				<header className="App-header">
 					<img src={logo} className="App-logo" alt="logo" />
-					<h1 className="App-title">Welcome to React Countries</h1>
-					<Link to="/">Home</Link>
+					<h1 className="App-title">Hexaco</h1>
+					{/* <Link to="/">Home</Link>
 					<Link to="/countries">Countries</Link>
 					<Link to="/add-country">Add country</Link>
 					{!api.isLoggedIn() && <Link to="/signup">Signup</Link>}
@@ -40,15 +40,15 @@ class App extends Component {
 							Logout
 						</Link>
 					)}
-					<Link to="/secret">Secret</Link>
+					<Link to="/secret">Secret</Link> */}
 				</header>
 				<Switch>
 					<Route exact path="/" component={Home} />
 					<Route path="/city/:cityId" component={CityDetail} />
-					<Route path="/signup" component={Signup} />
+					{/* <Route path="/signup" component={Signup} />
 					<Route path="/login" component={Login} />
 					<Route path="/secret" component={Secret} />
-					<Route render={() => <h2>404</h2>} />
+					<Route render={() => <h2>404</h2>} /> */}
 				</Switch>
 			</div>
 		);

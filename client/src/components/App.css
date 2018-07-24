@@ -1,3 +1,37 @@
+@import url("https://fonts.googleapis.com/css?family=Rubik:300,400,500");
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: "Rubik";
+	font-weight: 400;
+}
+
+input,
+a,
+p,
+h5 {
+	font-family: "Rubik";
+	font-weight: 300;
+}
+
+a:hover {
+	text-decoration: none !important;
+	/* color: beige; */
+}
+
+.card {
+	border-radius: 0 !important;
+}
+
+.card-title {
+	background-color: #efefef;
+	padding: 0 2% 0 2%;
+	color: #222;
+	border: 0.15rem solid #222;
+}
+
 .App {
 	text-align: center;
 }
@@ -8,10 +42,10 @@
 }
 
 .App-header {
-	background-color: #222;
+	/* background-color: #222; */
 	height: 150px;
 	padding: 20px;
-	color: white;
+	color: #222;
 }
 
 .App-header a {
@@ -20,7 +54,7 @@
 }
 
 .App-title {
-	font-size: 1.5em;
+	font-size: 2rem;
 }
 
 .App-intro {
@@ -34,16 +68,6 @@
 	to {
 		transform: rotate(360deg);
 	}
-}
-
-.heading-cityDetail {
-	background-color: white;
-	top: 50px;
-}
-
-.heading-cityDetail > h1 {
-	font-size: 12rem;
-	text-shadow: 1px 1px white;
 }
 
 .form-control {
