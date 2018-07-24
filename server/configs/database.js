@@ -2,7 +2,8 @@
 
 const mongoose = require("mongoose");
 const dbName = "hexa";
-const mongoUri = process.env.MONGODB_URI + `/${dbName}`;
+const mongoUri = process.env.MONGODB_URI + "/hexa";
+console.log(mongoUri);
 
 // connect to the database
 mongoose.connect(mongoUri);
