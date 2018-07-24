@@ -19,22 +19,19 @@ router.get("/getpalette", function(req, res, next) {
 						Vibrant.from(`public/images/${city._id}.jpg`)
 							.getPalette()
 							.then(colors => {
-								// how can I push an array?
 								let ts = JSON.parse(JSON.stringify(colors));
 								City.findOneAndUpdate(
 									{ dcId: cities[i].dcId },
 									{ palette: ts },
 									{ upsert: true, new: true }
-								).then(final => console.log(final));
+								).then(final => res.json(final));
 							})
-							// .then(colorsUpdated => res.json(colorsUpdated))
 							.catch(err => {
 								console.log("error : ", err);
 							});
 					}
 				});
 		});
-		// res.send("work in progress!");
 	});
 });
 

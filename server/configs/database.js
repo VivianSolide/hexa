@@ -1,7 +1,6 @@
 "use strict";
 
 const mongoose = require("mongoose");
-const dbName = "hexa";
 const mongoUri = process.env.MONGODB_URI;
 console.log(mongoUri);
 
