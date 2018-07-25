@@ -7,7 +7,6 @@ import Secret from "./Secret";
 import Login from "./Login";
 import Signup from "./Signup";
 import api from "../api";
-import logo from "../logo.png";
 import "./App.css";
 import { Button } from "reactstrap";
 
@@ -27,10 +26,6 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<header className="App-header">
-					<img src={logo} className="App-logo" alt="logo" />
-					<h1 className="App-title">Hexaco</h1>
-				</header>
 				<Switch>
 					<Route exact path="/" component={Home} />
 					<Route path="/city/:cityId" component={CityDetail} />

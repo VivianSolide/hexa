@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 import Searchbar from "./Searchbar";
+import logo from "../logo.png";
+
 import CityList from "./CityList";
 
 class Home extends Component {
@@ -17,12 +19,26 @@ class Home extends Component {
 	}
 	render() {
 		return (
-			<div className="">
+			<div>
+				<header className="App-header">
+					<a href="/">
+						<img src={logo} className="App-logo" alt="logo" />
+					</a>
+					<h1 className="App-title">Hexaco</h1>
+				</header>
 				<Searchbar
 					changeSearch={this.handleChange.bind(this)}
 					searchText={this.state.searchText}
 				/>
 				<CityList searchText={this.state.searchText} />
+				<p>
+					Made by
+					<a href="https://www.linkedin.com/in/ignaciolopezsanchez/"> Nacho </a>
+					&
+					<a href="https://www.linkedin.com/in/viviansarazin/"> Vivian </a>
+					at
+					<a href="https://www.instagram.com/ironhackber/"> Ironhack Berlin.</a>
+				</p>
 			</div>
 		);
 	}

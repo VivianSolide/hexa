@@ -26,9 +26,14 @@ class CityDetail extends Component {
 					id="cityDetail"
 					style={{
 						backgroundImage: `url(${camera.lastPhoto})`,
-						height: "85vh"
+						height: "100vh"
 					}}
 				>
+					<div className="button-cityDetail">
+						<a href="/">
+							<button className="btn btn-primary">Home</button>
+						</a>
+					</div>
 					<div className="heading-cityDetail">
 						<h1>{camera.location.title}</h1>
 						<i>Colors given by RGB</i>

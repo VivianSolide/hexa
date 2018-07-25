@@ -25,6 +25,24 @@ h5 {
 	font-weight: 300;
 }
 
+.button-cityDetail {
+	text-align: left;
+	padding-top: 1vh;
+}
+
+.btn-primary {
+	background-color: transparent !important;
+	color: #222 !important;
+	border: 0.15rem solid #222 !important;
+}
+
+.btn-primary:hover {
+	background-color: #222 !important;
+	color: #efefef !important;
+	border: 0.15rem solid #222 !important;
+	font-weight: 500;
+}
+
 a:hover {
 	text-decoration: none !important;
 	/* color: beige; */
