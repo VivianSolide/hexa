@@ -25,6 +25,7 @@ class Home extends Component {
 						<img src={logo} className="App-logo" alt="logo" />
 					</a>
 					<h1 className="App-title">Hexaco</h1>
+					<p>Catch the colors of the sky, live</p>
 				</header>
 				<Searchbar
 					changeSearch={this.handleChange.bind(this)}
