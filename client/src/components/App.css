@@ -4,8 +4,17 @@ h1,
 h2,
 h3,
 h4 {
-	font-family: "Rubik";
-	font-weight: 400;
+	font-family: "Rubik" !important;
+	font-weight: 400 !important;
+}
+
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7 {
+	margin: 0 auto;
 }
 
 input,
@@ -23,12 +32,27 @@ a:hover {
 
 .card {
 	border-radius: 0 !important;
+	display: flex;
+}
+.card-body {
+	padding-top: 5vh !important;
+	/* margin: 0 auto !important; */
 }
 
 .card-title {
 	background-color: #efefef;
 	padding: 0 2% 0 2%;
 	color: #222;
+	border: 0.15rem solid #222;
+}
+
+.card-hexa {
+	/* margin-top: 16vh; */
+	background-color: #efefef;
+	/* padding: 0 2% 0 2%; */
+	color: #222;
+	position: absolute;
+	top: 88%;
 	border: 0.15rem solid #222;
 }
 
