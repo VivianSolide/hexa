@@ -30,25 +30,10 @@ class App extends Component {
 				<header className="App-header">
 					<img src={logo} className="App-logo" alt="logo" />
 					<h1 className="App-title">Hexaco</h1>
-					{/* <Link to="/">Home</Link>
-					<Link to="/countries">Countries</Link>
-					<Link to="/add-country">Add country</Link>
-					{!api.isLoggedIn() && <Link to="/signup">Signup</Link>}
-					{!api.isLoggedIn() && <Link to="/login">Login</Link>}
-					{api.isLoggedIn() && (
-						<Link to="/" onClick={e => this.handleLogoutClick(e)}>
-							Logout
-						</Link>
-					)}
-					<Link to="/secret">Secret</Link> */}
 				</header>
 				<Switch>
 					<Route exact path="/" component={Home} />
 					<Route path="/city/:cityId" component={CityDetail} />
-					{/* <Route path="/signup" component={Signup} />
-					<Route path="/login" component={Login} />
-					<Route path="/secret" component={Secret} />
-					<Route render={() => <h2>404</h2>} /> */}
 				</Switch>
 			</div>
 		);

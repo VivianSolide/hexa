@@ -56,6 +56,25 @@ a:hover {
 	border: 0.15rem solid #222;
 }
 
+.heading-cityDetail h1 {
+	padding-top: 5vh;
+	text-shadow: 1px 1px #eee;
+	font-size: 5rem;
+}
+
+.colors {
+	margin-top: 9vh;
+	padding: 1vh;
+}
+
+.card-title-detail {
+	background-color: #efefef;
+	padding: 0 2% 0 2%;
+	color: #222;
+	border: 0.15rem solid #222;
+	margin: 0 1rem;
+}
+
 .App {
 	text-align: center;
 }
