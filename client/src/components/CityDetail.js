@@ -42,56 +42,67 @@ class CityDetail extends Component {
 					<div className="container colors">
 						<div className="row">
 							{camera.palette.Vibrant && (
-								<div className="col-lg-3 card-title-detail">
-									<h3>Vibrant</h3>
-									{camera.palette.Vibrant._rgb.map((e, i) => {
-										return <p>{e} </p>;
-									})}
+								<div className="col-lg-3 card">
+									<div className="card-body">
+										<h3 className="card-title">Vibrant</h3>
+										{camera.palette.Vibrant._rgb.map((e, i) => {
+											return <p className="card-text">{e} </p>;
+										})}
+									</div>
 								</div>
 							)}
 
 							{camera.palette.LightVibrant && (
-								<div className="col-lg-3 card-title-detail">
-									<h3>LightVibrant</h3>
-									{camera.palette.LightVibrant._rgb.map((e, i) => {
-										return <p>{e} </p>;
-									})}
+								<div className="col-lg-3 card">
+									<div className="card-body">
+										<h3 className="card-title">LightVibrant</h3>
+										{camera.palette.LightVibrant._rgb.map((e, i) => {
+											return <p className="card-text">{e} </p>;
+										})}
+									</div>
 								</div>
 							)}
 
 							{camera.palette.DarkVibrant && (
-								<div className="col-lg-3 card-title-detail">
-									<h3>DarkVibrant</h3>
-									{camera.palette.DarkVibrant._rgb.map((e, i) => {
-										return <p>{e} </p>;
-									})}
+								<div className="col-lg-3 card">
+									<div className="card-body">
+										<h3 className="card-title">DarkVibrant</h3>
+										{camera.palette.DarkVibrant._rgb.map((e, i) => {
+											return <p className="card-text">{e} </p>;
+										})}
+									</div>
 								</div>
 							)}
-
 							{camera.palette.Muted && (
-								<div className="col-lg-3 card-title-detail">
-									<h3>Muted</h3>
-									{camera.palette.Muted._rgb.map((e, i) => {
-										return <p>{e} </p>;
-									})}
+								<div className="col-lg-3 card">
+									<div className="card-body">
+										<h3 className="card-title">Muted</h3>
+										{camera.palette.Muted._rgb.map((e, i) => {
+											return <p className="card-text">{e} </p>;
+										})}
+									</div>
 								</div>
 							)}
 
 							{camera.palette.LightMuted && (
-								<div className="col-lg-3 card-title-detail">
-									<h3>LightMuted</h3>
-									{camera.palette.LightMuted._rgb.map((e, i) => {
-										return <p>{e} </p>;
-									})}
+								<div className="col-lg-3 card">
+									<div className="card-body">
+										<h3 className="card-title">LightMuted</h3>
+										{camera.palette.LightMuted._rgb.map((e, i) => {
+											return <p className="card-text">{e} </p>;
+										})}
+									</div>
 								</div>
 							)}
 
 							{camera.palette.DarkMuted && (
-								<div className="col-lg-3 card-title-detail">
-									<h3>DarkMuted</h3>
-									{camera.palette.DarkMuted._rgb.map((e, i) => {
-										return <p>{e} </p>;
-									})}
+								<div className="col-lg-3 card">
+									<div className="card-body">
+										<h3 className="card-title">DarkMuted</h3>
+										{camera.palette.DarkMuted._rgb.map((e, i) => {
+											return <p className="card-text">{e} </p>;
+										})}
+									</div>
 								</div>
 							)}
 						</div>

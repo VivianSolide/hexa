@@ -34,6 +34,9 @@ class CityList extends Component {
 							.map((camera, i) => (
 								<div
 									key={camera._id}
+									style={{
+										marginBottom: "3vh"
+									}}
 									className={`col-${Math.floor(Math.random() * 3) + 2}`}
 								>
 									<Link to={`/city/${camera._id}`}>

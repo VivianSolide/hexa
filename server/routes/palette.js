@@ -41,7 +41,7 @@ router.get("/getcolors", (req, res, next) => {
 			res.json(data);
 		})
 		.catch(err => {
-			throm(err);
+			throw err;
 		});
 });
 

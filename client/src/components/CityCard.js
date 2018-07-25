@@ -20,17 +20,25 @@ class CityCard extends Component {
 			<div
 				className="card"
 				style={{
-					backgroundColor: `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`,
-					width: "100%",
-					height: "33vh",
-					marginBottom: "3vh"
+					maxHeight: "40vh"
 				}}
 			>
-				<div className="card-body">
-					<h5 className="card-title">{this.props.city.location.title}</h5>
-					<h3 className="card-hexa" style={{ color: "red" }}>{`rgb(${rgb[0]},${
-						rgb[1]
-					},${rgb[2]})`}</h3>
+				<div
+					className="card-img-top"
+					style={{
+						backgroundColor: `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`,
+						height: "20vh"
+					}}
+				/>
+				<div className="card-body" style={{ height: "20vh" }}>
+					<h3 className="card-title">{this.props.city.location.title}</h3>
+					<div className="card-text">
+						<h5
+							style={{
+								color: `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`
+							}}
+						>{`rgb(${rgb[0]},${rgb[1]},${rgb[2]})`}</h5>
+					</div>
 				</div>
 			</div>
 		);
