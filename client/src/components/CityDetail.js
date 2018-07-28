@@ -34,6 +34,7 @@ class CityDetail extends Component {
 							<button className="btn btn-primary">Home</button>
 						</a>
 					</div>
+
 					<div className="heading-cityDetail">
 						<h1>{camera.location.title}</h1>
 						<i>Colors given by RGB</i>
@@ -105,6 +106,23 @@ class CityDetail extends Component {
 									</div>
 								</div>
 							)}
+						</div>
+					</div>
+
+					<div className="container">
+						<div className="row">
+							<div className="buttons">
+								<div className="button-cityDetail-previous">
+									<a href="/">
+										<button className="btn btn-danger">Previous</button>
+									</a>
+								</div>
+								<div className="button-cityDetail-next">
+									<a href="/">
+										<button className="btn btn-success">Next</button>
+									</a>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

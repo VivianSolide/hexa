@@ -37,7 +37,11 @@ class CityList extends Component {
 									style={{
 										marginBottom: "3vh"
 									}}
-									className={`col-${Math.floor(Math.random() * 3) + 2}`}
+									className={`
+										col-12 
+										col-md-${Math.floor(Math.random() * 4) + 4}
+										col-lg-${Math.floor(Math.random() * 3) + 3}
+									`}
 								>
 									<Link to={`/city/${camera._id}`}>
 										<CityCard city={camera} />

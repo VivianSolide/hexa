@@ -1,0 +1,35 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+body {
+	@include media-breakpoint-up(md) {
+		// XL
+		font-size: 1.8rem;
+		// background-color: #ff6666;
+	}
+	@include media-breakpoint-down(lg) {
+		// LG
+		font-size: 1.6rem;
+		// background-color: #ffb266;
+	}
+	@include media-breakpoint-down(md) {
+		// MD
+		font-size: 1.4rem;
+		// background-color: #ffff66;
+	}
+	@include media-breakpoint-down(sm) {
+		// SM
+		font-size: 1.2rem;
+		// background-color: #b2ff66;
+	}
+	@include media-breakpoint-down(xs) {
+		// XS
+		font-size: 1rem;
+		// background-color: #b2b266;
+	}
+	.card {
+		display: flex;
+	}
+	.card-body {
+		margin: 0 auto;
+	}
+}

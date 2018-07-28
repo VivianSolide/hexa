@@ -137,4 +137,22 @@ a:hover {
 	width: 50% !important;
 	margin: 0 auto;
 	margin-bottom: 2rem !important;
+	text-align: center;
+	font-family: "Rubik";
+}
+
+.buttons {
+	padding-top: 12vh;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+}
+
+.button-cityDetail-previous {
+	margin-right: 1vw;
+}
+.button-cityDetail-previous {
 }

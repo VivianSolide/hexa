@@ -30,7 +30,7 @@ class CityCard extends Component {
 						height: "20vh"
 					}}
 				/>
-				<div className="card-body" style={{ height: "20vh" }}>
+				<div className="card-body" style={{ height: "100%" }}>
 					<h3 className="card-title">{this.props.city.location.title}</h3>
 					<div className="card-text">
 						<h5
