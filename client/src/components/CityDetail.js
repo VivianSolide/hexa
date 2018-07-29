@@ -248,7 +248,7 @@ class CityDetail extends Component {
 						</div>
 					</div>
 
-					<div className="container">
+					{/* <div className="container">
 						<div className="row">
 							<div className="buttons">
 								<div className="button-cityDetail-previous">
@@ -263,7 +263,7 @@ class CityDetail extends Component {
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> */}
 				</div>
 			)
 		);

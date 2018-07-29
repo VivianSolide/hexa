@@ -70,11 +70,11 @@ a:hover {
 .card-color:before {
 	color: #222;
 	font-family: "Rubik";
-	content: "copy";
-	font-size: 12px;
+	transform: scale(0.15);
+	content: url("https://www.materialui.co/materialIcons/content/content_copy_black_192x192.png");
 	position: absolute;
-	top: 1%;
-	right: 3%;
+	top: -8.5vh;
+	left: 60%;
 }
 
 #cityDetail .col-lg-3 {
@@ -93,17 +93,20 @@ a:hover {
 }
 
 .heading-cityDetail h1 {
-	transform: skewY(-2deg);
+	transform: skewY(-3deg);
+	box-shadow: 25px 25px #222;
 	color: #444;
 	background-color: #fff;
 	width: fit-content;
+	padding-left: 10%;
+	padding-right: 10%;
 	margin: 0 auto;
 	text-shadow: 1px 1px #eee;
 	font-size: 5rem;
 }
 
 .colors {
-	margin-top: 9vh;
+	margin-top: 13vh;
 	padding: 1vh;
 }
 
