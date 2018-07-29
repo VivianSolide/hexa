@@ -67,6 +67,16 @@ a:hover {
 	height: 10vh;
 }
 
+.card-color:before {
+	color: #222;
+	font-family: "Rubik";
+	content: "copy";
+	font-size: 12px;
+	position: absolute;
+	top: 1%;
+	right: 3%;
+}
+
 #cityDetail .col-lg-3 {
 	padding-left: 0;
 	padding-right: 0;
