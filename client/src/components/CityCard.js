@@ -5,9 +5,14 @@ import "bootstrap/dist/css/bootstrap.css";
 
 class CityCard extends Component {
 	render() {
+		// filter color with at least 1 population
 		let palette = _.values(this.props.city.palette).filter(e => {
-			return e;
+			if (e) {
+				e._population > 0;
+				return e;
+			}
 		});
+		// get the dominant color
 		let pop = 0;
 		let rgb = [];
 		for (let i = 0; i < palette.length; i++) {
@@ -16,6 +21,23 @@ class CityCard extends Component {
 				rgb = palette[i]._rgb;
 			}
 		}
+		// split the rgbs
+		let sky = "";
+		palette.forEach(g => {
+			sky += "rgb(" + g._rgb + "),";
+		});
+
+		// remove the last comma...
+		sky = sky.slice(0, -1);
+
+		// gradient if 2 colors at least
+		let color = "";
+		if (sky.includes("),")) {
+			color = `linear-gradient( ${sky} )`;
+		} else {
+			color = `${sky}`;
+		}
+
 		return (
 			<div
 				className="card"
@@ -26,7 +48,7 @@ class CityCard extends Component {
 				<div
 					className="card-img-top"
 					style={{
-						backgroundColor: `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`,
+						background: `${color}`,
 						height: "20vh"
 					}}
 				/>
