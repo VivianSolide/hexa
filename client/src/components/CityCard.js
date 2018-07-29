@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import _ from "lodash";
 import "bootstrap/dist/css/bootstrap.css";
+import rgbHex from "rgb-hex";
 // http://c0bra.github.io/color-scheme-js/
 
 class CityCard extends Component {
@@ -21,22 +22,17 @@ class CityCard extends Component {
 				rgb = palette[i]._rgb;
 			}
 		}
-		// next step : https://stackoverflow.com/a/11923973/4593428
-		// split the rgbs
-		let sky = "";
-		palette.forEach(g => {
-			sky += "rgb(" + g._rgb + "),";
+
+		// convert hexa
+		let kgb = palette.map(rgb => {
+			return rgbHex(...rgb._rgb);
 		});
 
-		// remove the last comma...
-		sky = sky.slice(0, -1);
-
-		// gradient if 2 colors at least
 		let color = "";
-		if (sky.includes("),")) {
-			color = `linear-gradient( ${sky} )`;
+		if (kgb.length > 2) {
+			color = `linear-gradient(to right, #${kgb[0]}, #${kgb[1]} )`;
 		} else {
-			color = `${sky}`;
+			color = `linear-gradient( #${kgb[0]}, white )`;
 		}
 
 		return (
