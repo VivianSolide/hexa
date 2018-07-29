@@ -5,7 +5,10 @@
   "scripts": {
     "preinstall": "echo --- preinstall --- && cd client && npm install && cd .. && cd server && npm install && cd ..",
     "prestart": "echo --- prestart --- && cd client && npm run build && cd ..",
-    "start": "echo --- start --- && cd server && npm start",
+
+    "postinstall": "npm run build",
+    "start": "echo --- start --- && cd server && node bin/www",
+    
     "dev:server": "cd server && npm run dev",
     "dev:client": "cd client && npm run start"
   },

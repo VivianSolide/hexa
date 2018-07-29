@@ -21,6 +21,7 @@ class CityCard extends Component {
 				rgb = palette[i]._rgb;
 			}
 		}
+		// next step : https://stackoverflow.com/a/11923973/4593428
 		// split the rgbs
 		let sky = "";
 		palette.forEach(g => {
