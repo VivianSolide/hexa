@@ -56,7 +56,9 @@ class CityCard extends Component {
 							style={{
 								color: `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`
 							}}
-						>{`rgb(${rgb[0]},${rgb[1]},${rgb[2]})`}</h5>
+						>
+							{`#${kgb[0]}`}
+						</h5>
 					</div>
 				</div>
 			</div>
