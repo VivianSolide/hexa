@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import _ from "lodash";
 import "bootstrap/dist/css/bootstrap.css";
-import rgbHex from "rgb-hex";
+import rgbHex from "../rgb-hex";
 // http://c0bra.github.io/color-scheme-js/
 
 class CityCard extends Component {
