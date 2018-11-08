@@ -9,8 +9,8 @@ const cors = require("cors");
 const passport = require("passport");
 const { Strategy, ExtractJwt } = require("passport-jwt");
 
-const https = require("https");
 const cron = require("node-cron");
+const axios = require("axios");
 
 const config = require("./configs/index");
 const User = require("./models/user");
@@ -71,14 +71,22 @@ app.use("/api", camerasRoutes);
 app.use("/api", paletteRoutes);
 
 // cron
-cron.schedule("20 * * * *", function() {
-	console.log("Cron");
-	https.get("https://hexaco.herokuapp.com/api/getcameras");
-	https.get("https://hexaco.herokuapp.com/api/getlastphoto");
-	https.get("https://hexaco.herokuapp.com/api/getpalette");
-	https.get("https://hexaco.herokuapp.com/api/getcolors");
+cron.schedule("* * * * *", () => {
+	console.log("cron started");
+	axios.get("https://hexaco.herokuapp.com/api/getcameras").then(cam => {
+		console.log(cam);
+		axios.get("https://hexaco.herokuapp.com/api/getlastphoto").then(lp => {
+			console.log(lp);
+			axios
+				.get("https://hexaco.herokuapp.com/api/getpalette")
+				.then(pal => {
+					console.log(pal);
+					console.log("done");
+				})
+				.catch(err => console.log(err));
+		});
+	});
 });
-
 // For any routes that starts with "/api", catch 404 and forward to error handler
 app.use("/api/*", (req, res, next) => {
 	let err = new Error("Not Found");
