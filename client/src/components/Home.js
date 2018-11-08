@@ -25,7 +25,14 @@ class Home extends Component {
 						<img src={logo} className="App-logo" alt="logo" />
 					</a>
 					<h1 className="App-title">Hexaco</h1>
-					<p>Catch the colors of the sky, live</p>
+					<p>
+						Catch the colors of the sky, live{" "}
+						<img
+							src="https://image.flaticon.com/icons/svg/65/65610.svg"
+							width="25px"
+							className="img-fluid"
+						/>{" "}
+					</p>
 				</header>
 				<Searchbar
 					changeSearch={this.handleChange.bind(this)}

@@ -52,7 +52,7 @@ router.get("/getcolors/:cameraId", (req, res, next) => {
 			res.json(data);
 		})
 		.catch(err => {
-			throm(err);
+			throw(err);
 		});
 });
 module.exports = router;
